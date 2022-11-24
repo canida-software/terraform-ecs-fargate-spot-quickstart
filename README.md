@@ -1,5 +1,9 @@
 # ECS Quickstart with Terraform
-This quickstart guide helps you to quickly run your application on AWS. For startups/smaller projects the setup is production ready. All the required resources can be created in a single command by using Terraform.
+This quickstart guide helps you to quickly run your application on AWS. For startups/smaller projects the setup is production ready. All the required resources can be created in a single command by using Terraform. The final setup is depicted below.
+
+<p align="center">
+<img src="images/overview.jpg" width="60%">
+</p>
 
 ## What you will get.
 - An application that runs on https://sample-app.your-domain.com.
@@ -34,7 +38,9 @@ terraform apply --var-file sample-app.tfvars
 
 ### Verify Setup
 Visit [sample-app.your-domain.com]() to verify that the setup worked. If you deployed the nginx image. It should look as follows:
-![Nginx Welcome Page](images/nginx.jpg)
+<p align="center">
+<img src="images/nginx.jpg" width="40%">
+</p>
 
 ## Extending the Setup
 
