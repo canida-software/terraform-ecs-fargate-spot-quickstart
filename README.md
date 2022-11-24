@@ -14,15 +14,6 @@ This quickstart guide helps you to quickly run your application on AWS. For star
 - A domain on AWS
     - Alternatively, you can also just create a DNS zone delegation to manage subdomain.your-domain.com via AWS while leaving your-domain.com at your previous DNS provider.
 
-## Notes 
-
-- AWS provides their own quickstart. However, I did not like the quality. That's why I created this setup.
-[https://github.com/aws-quickstart/terraform-aws-ecs-fargate](https://github.com/aws-quickstart/terraform-aws-ecs-fargate)
-
-
-- uses fargate spot instances
-The average frequency of interruption over the timeframe of a month across all Regions and instance types is <10%. For many instances its < 5%. Check out here: https://aws.amazon.com/ec2/spot/instance-advisor/
-
 ## Quickstart.
 
 ### Adapt configuration values.
@@ -86,3 +77,13 @@ terraform {
 ```
 
 Then, execute `tf init --migrate-state` to migrate your state to the s3 backend.
+
+## Additional Information
+
+### Official AWS Quickstart Guide
+
+AWS provides their own quickstart. However, I did not like the quality. That's why I created this setup. Check it out here: [https://github.com/aws-quickstart/terraform-aws-ecs-fargate](https://github.com/aws-quickstart/terraform-aws-ecs-fargate)
+
+
+### Spot Instance Reliability
+If you enable multi-az in the configuration. The app will be deployed across 2 availability zones. I.e. you won't have any downtime even if AWS kills one of your spot instances. The setup will just start another instance and in the meantime traffic is routed to your other replica only. The probability of your spot instance to get killed is <10% for a whole month. For many instances its < 5%. Check out information for specific instance types here: https://aws.amazon.com/ec2/spot/instance-advisor/
