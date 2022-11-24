@@ -34,7 +34,7 @@ terraform apply --var-file sample-app.tfvars
 
 ### Verify Setup
 Visit [sample-app.your-domain.com]() to verify that the setup worked. If you deployed the nginx image. It should look as follows:
-[](images/nginx.jpg)
+![Nginx Welcome Page](images/nginx.jpg)
 
 ## Extending the Setup
 
