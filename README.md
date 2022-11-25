@@ -93,3 +93,32 @@ AWS provides their own quickstart. However, I did not like the quality. That's w
 
 ### Spot Instance Reliability
 If you enable multi-az in the configuration. The app will be deployed across 2 availability zones. I.e. you won't have any downtime even if AWS kills one of your spot instances. The setup will just start another instance and in the meantime traffic is routed to your other replica only. The probability of your spot instance to get killed is <10% for a whole month. For many instances its < 5%. Check out information for specific instance types here: https://aws.amazon.com/ec2/spot/instance-advisor/
+
+## Canida Internal Configuration Management
+
+We use 1password to store the configuration files for Terraform.
+
+### Create new application
+*Note: 1Password allows you to create the same configuration multiple times. If that happens you will have to delete one version o.w. updating the config will fail.*
+
+```
+MYAPP=sample-app
+op document create --vault demo-apps config/${MYAPP}.tfvars
+terraform apply --var-file ${MYAPP}.tfvars
+```
+
+### Update application
+
+First, retrieve the latest app configuration.
+
+```
+MYAPP=sample-app
+op document get --vault demo-apps ${MYAPP}.tfvars > config/${MYAPP}.tfvars
+```
+
+Then, edit the config file locally, update the documents in 1password and apply the changes via Terraform.
+
+```
+op document edit --vault demo-apps ${MYAPP}.tfvars  config/${MYAPP}.tfvars
+terraform apply --var-file ${MYAPP}.tfvars
+```

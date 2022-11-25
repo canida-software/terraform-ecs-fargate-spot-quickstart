@@ -1,0 +1,4 @@
+# Ignore all config files except the sample app configuration.
+*
+!/sample-app.tfvars
+

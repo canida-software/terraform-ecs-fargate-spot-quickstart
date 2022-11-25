@@ -10,15 +10,15 @@ app_name        = "sample-app"
 stage           = "production"
 domain          = "canida.io"
 app_subdomain   = "sample-app"
-vpc_id          = "vpc-0837d9345e6b3c7fc"
+vpc_id          = "vpc-XXX"
 
 # -----------------------------------------------------------------------------
 # Public subnets to spawn the load balancer in and private subnets to spawn your container in.
 # If your VPC only contains public subnets, then you can also use them for the private subnets. 
 # However, for production it is recommended to use private subnets.
 # -----------------------------------------------------------------------------
-private_subnets = ["subnet-0b71c2093592fad11", "subnet-098d9f8f7cd6e8718", "subnet-037daf351c7c38c13"]
-public_subnets  = ["subnet-00070c45e086b1b11", "subnet-0cbc61d04f319354b", "subnet-02364497a08b776ae"]
+private_subnets = ["subnet-XXX", "subnet-XXX", "subnet-XXX"]
+public_subnets  = ["subnet-XXX", "subnet-XXX", "subnet-XXX"]
 
 environment = [
   {
