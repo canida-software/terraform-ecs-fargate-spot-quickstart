@@ -202,7 +202,7 @@ locals {
         }
       }
 
-      environment = var.environment
+      environment = var.app_environment
     }
   ]
 }

@@ -87,7 +87,7 @@ variable "multi_az" {
   default     = true
 }
 
-variable "environment" {
+variable "app_environment" {
   description = "Environment variables for ECS task: [ { name = \"foo\", value = \"bar\" }, ..]"
   default     = []
 }

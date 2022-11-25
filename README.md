@@ -1,5 +1,5 @@
-# Deploy your dockerized application to AWS ECS in 10 minutes using Terraform
-This quickstart guide helps you to quickly run your application on AWS. For startups/smaller projects the setup is production ready. All the required resources can be created in a single command by using Terraform. The final setup is depicted below.
+# Deploy your containerized application to AWS ECS in 10 minutes using Terraform
+This quickstart guide helps you to quickly run a containerized application on AWS. For startups/smaller projects the setup is production ready and easily extensible to fit more advanced needs. All the required resources can be created in a single command by using Terraform. The final setup is depicted below.
 
 <p align="center">
 <img src="https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/raw/main/images/overview.jpg" width="60%">
@@ -38,7 +38,7 @@ terraform apply --var-file config/sample-app.tfvars
 ```
 
 ### Verify Setup
-Visit [sample-app.your-domain.com]() to verify that the setup worked. If you deployed the nginx image. It should look as follows:
+Visit `sample-app.your-domain.com` to verify that the setup worked. If you deployed the nginx image. It should look as follows:
 <p align="center">
 <img src="https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/raw/main/images/nginx.jpg" width="40%">
 </p>

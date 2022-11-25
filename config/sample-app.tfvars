@@ -20,7 +20,11 @@ vpc_id          = "vpc-XXX"
 private_subnets = ["subnet-XXX", "subnet-XXX", "subnet-XXX"]
 public_subnets  = ["subnet-XXX", "subnet-XXX", "subnet-XXX"]
 
-environment = [
+
+# -----------------------------------------------------------------------------
+# Add your own environment variables here. They will be available in your container.
+# -----------------------------------------------------------------------------
+app_environment = [
   {
     name  = "KEY",
     value = "VALUE"
