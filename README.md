@@ -61,6 +61,12 @@ Visit `sample-app.your-domain.com` to verify that the setup worked. If you deplo
 <img src="https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/raw/main/images/nginx.jpg" width="40%">
 </p>
 
+### Clean Up
+
+```
+terraform destroy --var-file config/sample-app.tfvars
+```
+
 ## Extending the Setup
 
 ### Multiple Apps
