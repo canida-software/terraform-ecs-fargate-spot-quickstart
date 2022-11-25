@@ -9,6 +9,17 @@ locals {
   registry_secret_provided = var.registry_secret_arn != "" ? true : false
 }
 
+# -----------------------------------------------------------------------------
+# Remote backend configuration
+# Comment this out to use local backend
+# -----------------------------------------------------------------------------
+terraform {
+  backend "s3" {
+    bucket = "canida-terraform"
+    key    = "ecs-app.tfstate"
+    region = "eu-central-1"
+  }
+}
 
 # -----------------------------------------------------------------------------
 # Service role allowing AWS to manage resources required for ECS

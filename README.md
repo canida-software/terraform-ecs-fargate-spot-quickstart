@@ -24,6 +24,24 @@ This quickstart guide helps you to quickly run a containerized application on AW
 Check out [config/sample-app.tfvars](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/config/sample-app.tfvars) 
 and modify the variables to serve your needs. The variables are also explained in [variables.tf](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/variables.tf).
 
+### Configure State Backend
+You may store the Terraform state in this git repository. To do so comment out the section that configures s3 a remote backend.
+
+```
+terraform {
+#  backend "s3" {
+#    bucket = "my-terraform-bucket"
+#    key    = "app.tfstate"
+#    region = "eu-central-1"
+#  }
+}
+```
+
+If you want to use s3 to store Terraform state create a bucket as follows:
+
+```
+aws s3api create-bucket --bucket my-terraform-bucket --region eu-central-1 --create-bucket-configuration LocationConstraint=eu-central-1
+```
 ### Initialize Terraform
 ```
 terraform init
@@ -60,30 +78,6 @@ You can create a second ECS service to host another app. The load balancer costs
 
 ### Database Access
 I recommend to use a managed database created by RDS. You can just configure the database url via an environment variable.
-
-### Remote Backend
-Remote backends enable you to store the Terraform state remotely instead of using this repository. This is useful because the state may contain secrets for example for your RDS database (in our case it doesn't). Additionally, you don't have to push your state which prevents inconsistencies for example if you forget to push the state and your colleague modifies the project.
-In AWS you can use S3 to store the state. You can share the same bucket for multiple terraform projects. 
-
-Create a bucket as follows:
-
-```
-aws s3api create-bucket --bucket my-terraform-bucket --region eu-central-1 --create-bucket-configuration LocationConstraint=eu-central-1
-```
-
-Then add the following snippet to `main.tf` to configure the remote backend.
-
-```
-terraform {
-  backend "s3" {
-    bucket = "my-terraform-bucket"
-    key    = "app.tfstate"
-    region = "eu-central-1"
-  }
-}
-```
-
-Then, execute `tf init --migrate-state` to migrate your state to the s3 backend.
 
 ## Additional Information
 
