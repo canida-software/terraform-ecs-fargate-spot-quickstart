@@ -25,7 +25,7 @@ Check out [config/sample-app.tfvars](https://github.com/canida-software/terrafor
 and modify the variables to serve your needs. The variables are also explained in [variables.tf](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/variables.tf).
 
 ### Configure State Backend
-You may store the Terraform state in this git repository. To do so comment out the section that configures s3 a remote backend.
+You may store the Terraform state in this git repository. To do so comment out the following section in [main.tf](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/main.tf) that configures s3 a remote backend.
 
 ```
 terraform {
