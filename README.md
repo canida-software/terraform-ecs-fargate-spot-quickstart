@@ -21,7 +21,7 @@ This quickstart guide helps you to quickly run your application on AWS. For star
 ## Quickstart.
 
 ### Adapt configuration values.
-Check out [sample-app.tfvars](sample-app.tfvars) and modify the variables to serve your needs. The variables are also explained in [variables.tf](variables.tf).
+Check out [sample-app.tfvars](config/sample-app.tfvars) and modify the variables to serve your needs. The variables are also explained in [variables.tf](variables.tf).
 
 ### Initialize Terraform
 ```
