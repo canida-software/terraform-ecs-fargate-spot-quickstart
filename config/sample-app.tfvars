@@ -14,11 +14,15 @@ vpc_id          = "vpc-XXX"
 
 # -----------------------------------------------------------------------------
 # Public subnets to spawn the load balancer in and private subnets to spawn your container in.
-# If your VPC only contains public subnets, then you can also use them for the private subnets. 
-# However, for production it is recommended to use private subnets.
+#
+# If your VPC only contains public subnets, then you can also use them for the private subnets variable. 
+# If you do so you need to set the variable "app_assign_public_ip" to true 
+# o.w. your container will not be able to access the internet to pull your container image.
+# It works but I don't recommend it for anything but testing this setup.
 # -----------------------------------------------------------------------------
 private_subnets = ["subnet-XXX", "subnet-XXX", "subnet-XXX"]
 public_subnets  = ["subnet-XXX", "subnet-XXX", "subnet-XXX"]
+app_assign_public_ip = false
 
 
 # -----------------------------------------------------------------------------

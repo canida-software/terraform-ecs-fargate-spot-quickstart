@@ -92,6 +92,11 @@ variable "app_environment" {
   default     = []
 }
 
+variable "app_assign_public_ip" {
+  description = "Assign a public IP to the ECS service."
+  default     = false
+}
+
 variable "default_tags" {
   description = "Default tags to apply to all resources"
   default     = {}
