@@ -1,15 +1,15 @@
-# ECS Quickstart with Terraform
+# Deploy your dockerized application to AWS ECS in 10 minutes using Terraform
 This quickstart guide helps you to quickly run your application on AWS. For startups/smaller projects the setup is production ready. All the required resources can be created in a single command by using Terraform. The final setup is depicted below.
 
 <p align="center">
-<img src="images/overview.jpg" width="60%">
+<img src="https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/raw/main/images/overview.jpg" width="60%">
 </p>
 
 ## What you will get.
 - An application that runs on https://sample-app.your-domain.com.
-- Scaleable and reliable hosting of your app.
 - TLS encryption i.e. https works. 
-- Low price setup because it utilizes Spot instances (TODO add costs).
+- Optional hosting in 2 AZ's for maximum reliability.
+- Low price setup by utilizing spot instances.
 
 ## What you need to bring.
 - A dockerized application.
@@ -21,7 +21,8 @@ This quickstart guide helps you to quickly run your application on AWS. For star
 ## Quickstart.
 
 ### Adapt configuration values.
-Check out [sample-app.tfvars](config/sample-app.tfvars) and modify the variables to serve your needs. The variables are also explained in [variables.tf](variables.tf).
+Check out [sample-app.tfvars](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/config/sample-app.tfvars) 
+and modify the variables to serve your needs. The variables are also explained in [variables.tf](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/variables.tf).
 
 ### Initialize Terraform
 ```
@@ -39,7 +40,7 @@ terraform apply --var-file sample-app.tfvars
 ### Verify Setup
 Visit [sample-app.your-domain.com]() to verify that the setup worked. If you deployed the nginx image. It should look as follows:
 <p align="center">
-<img src="images/nginx.jpg" width="40%">
+<img src="https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/raw/main/images/nginx.jpg" width="40%">
 </p>
 
 ## Extending the Setup
@@ -58,7 +59,7 @@ and switch to a workspace using `terraform workspace select sample-app1`.
 You can create a second ECS service to host another app. The load balancer costs ~20$ per month, therefore I recommend to share the load balancer between the apps.
 
 ### Database Access
-I recommend to use a managed database database created by RDS. You can just configure the database url via an environment variable.
+I recommend to use a managed database created by RDS. You can just configure the database url via an environment variable.
 
 ### Remote Backend
 Remote backends enable you to store the Terraform state remotely instead of using this repository. This is useful because the state may contain secrets for example for your RDS database (in our case it doesn't). Additionally, you don't have to push your state which prevents inconsistencies for example if you forget to push the state and your colleague modifies the project.
