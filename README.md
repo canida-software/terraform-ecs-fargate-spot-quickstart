@@ -12,7 +12,8 @@ This quickstart guide helps you to quickly run a containerized application on AW
 - Low price setup by utilizing spot instances.
 
 ## What you need to bring.
-- A dockerized application.
+- Git Repository Clone: [terraform-ecs-fargate-spot-quickstart](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart.git).
+- Your Containerized Application
 - Terraform Installation
 - AWS CLI v2 Installation
 - A domain on AWS
