@@ -21,7 +21,7 @@ This quickstart guide helps you to quickly run your application on AWS. For star
 ## Quickstart.
 
 ### Adapt configuration values.
-Check out [sample-app.tfvars](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/config/sample-app.tfvars) 
+Check out [config/sample-app.tfvars](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/config/sample-app.tfvars) 
 and modify the variables to serve your needs. The variables are also explained in [variables.tf](https://github.com/canida-software/terraform-ecs-fargate-spot-quickstart/blob/main/variables.tf).
 
 ### Initialize Terraform
@@ -34,7 +34,7 @@ terraform init
 Run `terraform apply` to deploy this setup. Terraform will display the resources that will be created and you can confirm the changes. Creating the resources on AWS takes some time ~10 minutes.
 
 ```
-terraform apply --var-file sample-app.tfvars
+terraform apply --var-file config/sample-app.tfvars
 ```
 
 ### Verify Setup
